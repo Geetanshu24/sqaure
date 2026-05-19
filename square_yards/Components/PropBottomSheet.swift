@@ -1,8 +1,3 @@
-//
-//  PropBottomSheet.swift
-//  square_yards
-//
-
 import SwiftUI
 
 struct PropBottomSheet<Content: View>: View {

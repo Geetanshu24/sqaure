@@ -1,8 +1,3 @@
-//
-//  VideoFeedView.swift
-//  square_yards
-//
-
 import SwiftUI
 
 struct VideoFeedView: View {
@@ -20,9 +15,6 @@ struct VideoFeedView: View {
             await viewModel.loadVideosIfNeeded()
         }
         .onChange(of: viewModel.selectedIndex) { _ in
-            refreshPlayback()
-        }
-        .onChange(of: viewModel.isMuted) { _ in
             refreshPlayback()
         }
         .onChange(of: viewModel.activeLeadVideo) { _ in
@@ -87,7 +79,7 @@ struct VideoFeedView: View {
                     ForEach(Array(viewModel.videos.enumerated()), id: \.element.id) { index, video in
                         VideoFeedPageView(
                             video: video,
-                            player: playerPool.player(for: video, isMuted: viewModel.isMuted),
+                            player: playerPool.player(for: video),
                             isActive: viewModel.selectedIndex == index && viewModel.shouldPausePlayback == false,
                             onLeadTap: {
                                 viewModel.showLeadForm(for: video)
@@ -134,8 +126,7 @@ struct VideoFeedView: View {
 
         playerPool.syncPlayback(
             videos: viewModel.videos,
-            activeIndex: viewModel.selectedIndex,
-            isMuted: viewModel.isMuted
+            activeIndex: viewModel.selectedIndex
         )
     }
 

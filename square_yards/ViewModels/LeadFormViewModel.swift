@@ -1,8 +1,3 @@
-//
-//  LeadFormViewModel.swift
-//  square_yards
-//
-
 import Foundation
 
 @MainActor

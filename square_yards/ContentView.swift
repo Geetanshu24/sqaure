@@ -1,8 +1,3 @@
-//
-//  ContentView.swift
-//  square_yards
-//
-
 import SwiftUI
 
 struct ContentView: View {

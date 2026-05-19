@@ -1,8 +1,3 @@
-//
-//  VideoFeedService.swift
-//  square_yards
-//
-
 import Foundation
 
 protocol VideoFeedServicing {

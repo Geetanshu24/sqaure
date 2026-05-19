@@ -1,8 +1,3 @@
-//
-//  PropertyVideo.swift
-//  square_yards
-//
-
 import Foundation
 
 struct PropertyVideo: Identifiable, Decodable, Equatable {

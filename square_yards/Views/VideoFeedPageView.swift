@@ -1,8 +1,3 @@
-//
-//  VideoFeedPageView.swift
-//  square_yards
-//
-
 import AVFoundation
 import SwiftUI
 

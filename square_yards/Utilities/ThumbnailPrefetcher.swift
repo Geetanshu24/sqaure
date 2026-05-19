@@ -1,8 +1,3 @@
-//
-//  ThumbnailPrefetcher.swift
-//  square_yards
-//
-
 import Foundation
 
 enum ThumbnailPrefetcher {

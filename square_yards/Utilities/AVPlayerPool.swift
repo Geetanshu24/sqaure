@@ -1,8 +1,3 @@
-//
-//  AVPlayerPool.swift
-//  square_yards
-//
-
 import AVFoundation
 import Foundation
 
@@ -13,13 +8,12 @@ final class AVPlayerPool: ObservableObject {
         private var hasPrimedPlayback = false
         private var endObserver: NSObjectProtocol?
 
-        init(url: URL, isMuted: Bool) {
+        init(url: URL) {
             let item = AVPlayerItem(url: url)
             item.preferredForwardBufferDuration = 10
             item.canUseNetworkResourcesForLiveStreamingWhilePaused = false
 
             player = AVPlayer(playerItem: item)
-            player.isMuted = isMuted
             player.actionAtItemEnd = .none
             player.automaticallyWaitsToMinimizeStalling = false
 
@@ -31,10 +25,6 @@ final class AVPlayerPool: ObservableObject {
                 player?.seek(to: .zero)
                 player?.play()
             }
-        }
-
-        func setMuted(_ isMuted: Bool) {
-            player.isMuted = isMuted
         }
 
         func primeForPlayback() {
@@ -57,28 +47,26 @@ final class AVPlayerPool: ObservableObject {
     private var containers: [String: PlayerContainer] = [:]
     private var activeVideoID: String?
 
-    func player(for video: PropertyVideo, isMuted: Bool) -> AVPlayer {
+    func player(for video: PropertyVideo) -> AVPlayer {
         if let existing = containers[video.id] {
-            existing.setMuted(isMuted)
             return existing.player
         }
 
-        let container = PlayerContainer(url: video.url, isMuted: isMuted)
+        let container = PlayerContainer(url: video.url)
         containers[video.id] = container
         return container.player
     }
 
     func syncPlayback(
         videos: [PropertyVideo],
-        activeIndex: Int,
-        isMuted: Bool
+        activeIndex: Int
     ) {
         guard videos.indices.contains(activeIndex) else { return }
 
         let retainedIDs = retainedVideoIDs(videos: videos, activeIndex: activeIndex)
 
         for video in videos where retainedIDs.contains(video.id) {
-            let container = container(for: video, isMuted: isMuted)
+            let container = container(for: video)
             container.primeForPlayback()
         }
 
@@ -92,7 +80,6 @@ final class AVPlayerPool: ObservableObject {
                 continue
             }
 
-            container.setMuted(isMuted)
             if id == videos[activeIndex].id {
                 if activeVideoID != id {
                     container.player.seek(to: .zero, toleranceBefore: .zero, toleranceAfter: .zero)
@@ -110,13 +97,12 @@ final class AVPlayerPool: ObservableObject {
         containers.values.forEach { $0.player.pause() }
     }
 
-    private func container(for video: PropertyVideo, isMuted: Bool) -> PlayerContainer {
+    private func container(for video: PropertyVideo) -> PlayerContainer {
         if let existing = containers[video.id] {
-            existing.setMuted(isMuted)
             return existing
         }
 
-        let container = PlayerContainer(url: video.url, isMuted: isMuted)
+        let container = PlayerContainer(url: video.url)
         containers[video.id] = container
         return container
     }

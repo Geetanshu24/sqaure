@@ -1,8 +1,3 @@
-//
-//  VideoFeedViewModel.swift
-//  square_yards
-//
-
 import Foundation
 
 @MainActor
@@ -18,7 +13,6 @@ final class VideoFeedViewModel: ObservableObject {
     @Published private(set) var state: LoadingState = .idle
     @Published var selectedIndex = 0
     @Published var activeLeadVideo: PropertyVideo?
-    @Published var isMuted = false
 
     private let service: VideoFeedServicing
 

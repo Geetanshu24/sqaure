@@ -1,8 +1,3 @@
-//
-//  LeadFormView.swift
-//  square_yards
-//
-
 import SwiftUI
 
 struct LeadFormView: View {
