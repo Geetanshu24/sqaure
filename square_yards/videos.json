@@ -1,0 +1,48 @@
+{
+  "videos": [
+    {
+      "id": "v001",
+      "url": "https://img.squareyards.com/secondaryPortal/videos/8989459_dsevideo.mp4",
+      "thumbnailUrl": "https://img.squareyards.com/secondaryPortal/IN_638889710232092889-2407250423432343.png",
+      "tag": "Under Construction",
+      "title": "Signature Global Proxima · 1.25 CR · 3BHK",
+      "location": "Sector 89, Gurgaon",
+      "developerName": "Signature Global",
+      "expertName": null,
+      "viewCount": 1600
+    },
+    {
+      "id": "v002",
+      "url": "https://img.squareyards.com/secondaryPortal/videos/9270277_dsevideo.mp4",
+      "thumbnailUrl": "https://img.squareyards.com/secondaryPortal/IN_638959757804228550-131025060940940.png",
+      "tag": "Ready To Move",
+      "title": "M3M Soulitude · 1.45 CR · 2BHK",
+      "location": "Sector 89, Gurgaon",
+      "developerName": null,
+      "expertName": "Priya Mehta",
+      "viewCount": 200
+    },
+    {
+      "id": "v003",
+      "url": "https://img.squareyards.com/secondaryPortal/videos/9308352_dsevideo.mp4",
+      "thumbnailUrl": "https://img.squareyards.com/secondaryPortal/IN_638961121772607446-151025080257257.jpg",
+      "tag": "Ready To Move",
+      "title": "Birla Pravaah · 3.26 Cr. · 3BHK",
+      "location": "Sector 71, Gurgaon",
+      "developerName": "Birla Pravaah",
+      "expertName": "",
+      "viewCount": 10
+    },
+    {
+      "id": "v004",
+      "url": "https://img.squareyards.com/secondaryPortal/videos/9275306_dsevideo.mp4",
+      "thumbnailUrl": "https://img.squareyards.com/secondaryPortal/IN_638953523732320952-0610251259335933.jpg",
+      "tag": "New Launch",
+      "title": "Realtech The Luxurium · 4.5 Cr. · 3BHK",
+      "location": "Sushant Lok I, Gurgaon",
+      "developerName": "",
+      "expertName": "Gaurav Sharma",
+      "viewCount": 645
+    }
+  ]
+}

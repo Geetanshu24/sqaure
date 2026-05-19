@@ -1,0 +1,5 @@
+.derivedData/
+tmp/pdfs/
+*.DS_Store
+xcuserdata/
+*.xcuserstate
